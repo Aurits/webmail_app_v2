@@ -53,7 +53,7 @@ class Mail {
 
   // Get emails, first from local storage, then online if local is empty
   static Future<List<Mail>> getItems() async {
-    List<Mail> emails = []; //await getLocalEmails();
+    List<Mail> emails = await getLocalEmails();
     if (emails.isEmpty) {
       print("Fetching online emails...");
       await getOnlineEmails();
@@ -145,7 +145,7 @@ class Mail {
                             date TEXT,
                             subject TEXT,
                             message TEXT,
-                            attachments TEXT,
+                            attachments TEXT
                           )
                         ''');
 
