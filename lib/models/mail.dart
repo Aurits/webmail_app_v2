@@ -5,6 +5,7 @@ import 'package:sqflite/sqflite.dart';
 import '../utils/database.dart';
 
 class Mail {
+  int id = 0;
   String sender;
   String receiver;
   String replyTo;
@@ -14,6 +15,7 @@ class Mail {
   String attachments;
 
   Mail({
+    required this.id,
     required this.sender,
     required this.receiver,
     required this.replyTo,
@@ -25,6 +27,7 @@ class Mail {
 
   factory Mail.fromJson(Map<String, dynamic> json) {
     return Mail(
+      id: json['id'],
       sender: json['from'] ?? '',
       receiver: json['to'] ?? '',
       replyTo: json['reply_to'] ?? '',
@@ -37,6 +40,7 @@ class Mail {
 
   Map<String, dynamic> toJson() {
     return {
+      'id': id,
       'sender': sender,
       'receiver': receiver,
       'reply_to': replyTo,
