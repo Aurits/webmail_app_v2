@@ -142,8 +142,6 @@ class Mail {
     }
 
     try {
-      //DELETE TABLE
-      await db.execute('''DROP TABLE IF EXISTS emails''');
       await db.execute('''
                   CREATE TABLE IF NOT EXISTS emailTable (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
