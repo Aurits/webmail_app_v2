@@ -1,8 +1,6 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:makerere_webmail_app/models/mail.dart';
 // ignore: unused_import
 import 'package:url_launcher/url_launcher.dart';
 

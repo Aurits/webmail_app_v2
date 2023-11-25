@@ -1,8 +1,8 @@
 // ignore_for_file: avoid_print, unnecessary_null_comparison
 
 import 'package:dio/dio.dart';
-import 'package:makerere_webmail_app/utils/database.dart';
 import 'package:sqflite/sqflite.dart';
+import '../utils/database.dart';
 
 class Mail {
   String id;
