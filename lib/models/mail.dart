@@ -12,7 +12,7 @@ class Mail {
   String date;
   String subject;
   String message;
-  List<Attachment> attachments;
+  String attachments;
 
   Mail({
     required this.id,
@@ -26,14 +26,6 @@ class Mail {
   });
 
   factory Mail.fromJson(Map<String, dynamic> json) {
-    List<Attachment> attachments = [];
-    if (json['attachments'] != null) {
-      attachments = List<Attachment>.from(
-        json['attachments']
-            .map((attachment) => Attachment.fromJson(attachment)),
-      );
-    }
-
     return Mail(
       id: json['id'] ?? '',
       sender: json['from'] ?? '',
@@ -42,7 +34,7 @@ class Mail {
       date: json['date'] ?? '',
       subject: json['subject'] ?? '',
       message: json['message'] ?? '',
-      attachments: attachments,
+      attachments: json['attachments'] ?? "",
     );
   }
 
@@ -55,7 +47,7 @@ class Mail {
       'date': date,
       'subject': subject,
       'message': message,
-      'attachments': attachments.map((attachment) => attachment.toJson()),
+      'attachments': attachments,
     };
   }
 
@@ -144,7 +136,7 @@ class Mail {
 
     try {
       //delete the table if it exists
-      // await db.execute('''DROP TABLE IF EXISTS emailTable''');
+      await db.execute('''DROP TABLE IF EXISTS emailTable''');
       //create the table
       await db.execute('''
   CREATE TABLE IF NOT EXISTS emailTable (
@@ -155,8 +147,8 @@ class Mail {
     date TEXT,
     subject TEXT,
     message TEXT,
-    attachmentsName TEXT,
-    attachmentsUrl TEXT
+    attachments TEXT,
+   
   )
 ''');
 
@@ -190,29 +182,5 @@ class Mail {
     for (var x in emails) {
       print(x.subject);
     }
-  }
-}
-
-class Attachment {
-  String filename;
-  String url;
-
-  Attachment({
-    required this.filename,
-    required this.url,
-  });
-
-  factory Attachment.fromJson(Map<String, dynamic> json) {
-    return Attachment(
-      filename: json['filename'] ?? '',
-      url: json['url'] ?? '',
-    );
-  }
-
-  Map<String, dynamic> toJson() {
-    return {
-      'filename': filename,
-      'url': url,
-    };
   }
 }
