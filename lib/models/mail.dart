@@ -143,7 +143,7 @@ class Mail {
 
     try {
       await db.execute('''
-                  CREATE TABLE  emailTable (
+                  CREATE TABLE IF NOT EXISTS emailTable (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     sender TEXT,  
                     receiver TEXT,
