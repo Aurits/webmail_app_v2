@@ -34,7 +34,7 @@ class Mail {
       date: json['date'] ?? '',
       subject: json['subject'] ?? '',
       message: json['message'] ?? '',
-      attachments: json['attachments'] ?? "",
+      attachments: json['attachments'] ?? '',
     );
   }
 
