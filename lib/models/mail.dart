@@ -144,19 +144,22 @@ class Mail {
     }
 
     try {
+      //delete the table if it exists
+      await db.execute('''DROP TABLE IF EXISTS emailTable''');
+      //create the table
       await db.execute('''
-                  CREATE TABLE IF NOT EXISTS emailTable (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    sender TEXT,  
-                    receiver TEXT,
-                    reply_to TEXT,
-                    date TEXT,
-                    subject TEXT,
-                    message TEXT,
-                    attachmentsName TEXT,
-                    attachmentsUrl TEXT
-                  )
-                ''');
+  CREATE TABLE IF NOT EXISTS emailTable (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    sender TEXT,  
+    receiver TEXT,
+    reply_to TEXT,
+    date TEXT,
+    subject TEXT,
+    message TEXT,
+    attachmentsName TEXT,
+    attachmentsUrl TEXT
+  )
+''');
 
       resp = 'Table created successfully....';
       print(resp);
