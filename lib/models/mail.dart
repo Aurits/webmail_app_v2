@@ -5,17 +5,15 @@ import 'package:sqflite/sqflite.dart';
 import '../utils/database.dart';
 
 class Mail {
-  String id;
+  String id; // You may want to add an ID field for database purposes
   String sender;
   String receiver;
   String replyTo;
   String date;
   String subject;
   String message;
-  String attachmentsName;
-  String attachmentsUrl;
+  List<Attachment> attachments;
 
-  // Constructor for Mail object
   Mail({
     required this.id,
     required this.sender,
@@ -24,12 +22,18 @@ class Mail {
     required this.date,
     required this.subject,
     required this.message,
-    required this.attachmentsName,
-    required this.attachmentsUrl,
+    required this.attachments,
   });
 
-  // Factory method to create Mail object from JSON data
   factory Mail.fromJson(Map<String, dynamic> json) {
+    List<Attachment> attachments = [];
+    if (json['attachments'] != null) {
+      attachments = List<Attachment>.from(
+        json['attachments']
+            .map((attachment) => Attachment.fromJson(attachment)),
+      );
+    }
+
     return Mail(
       id: json['id'] ?? '',
       sender: json['from'] ?? '',
@@ -38,23 +42,21 @@ class Mail {
       date: json['date'] ?? '',
       subject: json['subject'] ?? '',
       message: json['message'] ?? '',
-      attachmentsName: json['attachmentsName'] ?? '',
-      attachmentsUrl: json['attachmentsUrl'] ?? '',
+      attachments: attachments,
     );
   }
 
-  // Convert Mail object to JSON
   Map<String, dynamic> toJson() {
     return {
       'id': id,
-      'sender': sender,
-      'receiver': receiver,
+      'from': sender,
+      'to': receiver,
       'reply_to': replyTo,
       'date': date,
       'subject': subject,
       'message': message,
-      'attachmentsName': attachmentsName,
-      'attachmentsUrl': attachmentsUrl,
+      'attachments':
+          attachments.map((attachment) => attachment.toJson()).toList(),
     };
   }
 
@@ -186,5 +188,29 @@ class Mail {
     for (var x in emails) {
       print(x.subject);
     }
+  }
+}
+
+class Attachment {
+  String filename;
+  String url;
+
+  Attachment({
+    required this.filename,
+    required this.url,
+  });
+
+  factory Attachment.fromJson(Map<String, dynamic> json) {
+    return Attachment(
+      filename: json['filename'] ?? '',
+      url: json['url'] ?? '',
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'filename': filename,
+      'url': url,
+    };
   }
 }
