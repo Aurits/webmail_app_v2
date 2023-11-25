@@ -67,7 +67,7 @@ class Mail {
     final dio = Dio();
     try {
       Response<dynamic> response = await dio.get(
-        'http://10.150.34.76:8000/api/fetch-emails',
+        'http://192.168.56.1:8000/api/fetch-emails',
       );
 
       if (response.statusCode == 200) {
