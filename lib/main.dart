@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:makerere_webmail_app/pages/emails/emails.dart';
-import 'package:makerere_webmail_app/pages/onboarding/landing_page.dart';
-import 'package:makerere_webmail_app/pages/onboarding/login_page.dart';
+import 'pages/emails/emails.dart';
+import 'pages/onboarding/landing_page.dart';
+import 'pages/onboarding/login_page.dart';
 
 void main() {
   runApp(const MyApp());
