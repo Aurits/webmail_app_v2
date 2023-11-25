@@ -5,7 +5,6 @@ import 'package:sqflite/sqflite.dart';
 import '../utils/database.dart';
 
 class Mail {
-  String id; // You may want to add an ID field for database purposes
   String sender;
   String receiver;
   String replyTo;
@@ -15,7 +14,6 @@ class Mail {
   String attachments;
 
   Mail({
-    required this.id,
     required this.sender,
     required this.receiver,
     required this.replyTo,
@@ -27,7 +25,6 @@ class Mail {
 
   factory Mail.fromJson(Map<String, dynamic> json) {
     return Mail(
-      id: json['id'] ?? '',
       sender: json['from'] ?? '',
       receiver: json['to'] ?? '',
       replyTo: json['reply_to'] ?? '',
@@ -40,7 +37,6 @@ class Mail {
 
   Map<String, dynamic> toJson() {
     return {
-      'id': id,
       'sender': sender,
       'receiver': receiver,
       'reply_to': replyTo,
