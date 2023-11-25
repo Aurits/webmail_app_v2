@@ -162,7 +162,8 @@ class Mail {
   static Future<List<Mail>> getLocalEmails({String where = "1"}) async {
     Database db = await Utils.init();
     await initTable(db);
-    print('local.....');
+    print(
+        'local...............................................................................');
 
     return db.query('emailTable', where: where).then((value) {
       List<Mail> emails = [];
