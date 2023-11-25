@@ -49,8 +49,8 @@ class Mail {
   Map<String, dynamic> toJson() {
     return {
       'id': id,
-      'from': sender,
-      'to': receiver,
+      'sender': sender,
+      'receiver': receiver,
       'reply_to': replyTo,
       'date': date,
       'subject': subject,
