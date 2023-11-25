@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:makerere_webmail_app/models/mail.dart';
+
+import '../../models/mail.dart';
 
 class EmailsPage extends StatefulWidget {
   const EmailsPage({super.key});
