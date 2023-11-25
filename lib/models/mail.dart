@@ -135,8 +135,6 @@ class Mail {
     }
 
     try {
-      //delete the table if it exists
-      //await db.execute('''DROP TABLE IF EXISTS emailTable''');
       //create the table
       await db.execute('''
                           CREATE TABLE IF NOT EXISTS emailTable (
@@ -148,7 +146,6 @@ class Mail {
                             subject TEXT,
                             message TEXT,
                             attachments TEXT,
-                          
                           )
                         ''');
 
