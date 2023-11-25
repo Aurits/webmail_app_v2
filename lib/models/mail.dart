@@ -55,8 +55,7 @@ class Mail {
       'date': date,
       'subject': subject,
       'message': message,
-      'attachments':
-          attachments.map((attachment) => attachment.toJson()).toList(),
+      'attachments': attachments.map((attachment) => attachment.toJson()),
     };
   }
 
