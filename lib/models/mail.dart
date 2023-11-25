@@ -67,7 +67,7 @@ class Mail {
     final dio = Dio();
     try {
       Response<dynamic> response = await dio.get(
-        'http://192.168.56.1:8000/api/fetch-emails',
+        'https://api-f973d85b-ca1e-4678-b336.cranecloud.io/api/fetch-emails',
       );
 
       if (response.statusCode == 200) {
