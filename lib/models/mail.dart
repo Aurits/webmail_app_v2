@@ -27,7 +27,7 @@ class Mail {
 
   factory Mail.fromJson(Map<String, dynamic> json) {
     return Mail(
-      id: json['id'],
+      id: json['id'] ?? 0,
       sender: json['from'] ?? '',
       receiver: json['to'] ?? '',
       replyTo: json['reply_to'] ?? '',
