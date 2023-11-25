@@ -143,9 +143,9 @@ class Mail {
 
     try {
       await db.execute('''
-                  CREATE TABLE IF NOT EXISTS emailTable (
+                  CREATE TABLE emailTable (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    sender TEXT,  -- Enclose problematic column names in square brackets
+                    sender TEXT,  
                     receiver TEXT,
                     reply_to TEXT,
                     date TEXT,
