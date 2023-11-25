@@ -48,7 +48,7 @@ class Mail {
     return {
       'id': id,
       'sender': sender,
-      'reciever': receiver,
+      'receiver': receiver,
       'reply_to': replyTo,
       'date': date,
       'subject': subject,
@@ -143,7 +143,7 @@ class Mail {
 
     try {
       await db.execute('''
-                  CREATE TABLE emailTable (
+                  CREATE TABLE  emailTable (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     sender TEXT,  
                     receiver TEXT,
