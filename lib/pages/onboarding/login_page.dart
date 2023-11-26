@@ -143,13 +143,13 @@ class _LoginPageState extends State<LoginPage> {
                           //save user t othe local db
                           print(
                               "Saving user.......................................................");
-                          Navigator.pushNamed(context, '/emails');
 
-                          // if (user.username.isNotEmpty ||
-                          //     user.password.isNotEmpty) {
-                          //   user.saveUser();
-                          //   print('User saved to db');
-                          // }
+                          if (user.username.isNotEmpty ||
+                              user.password.isNotEmpty) {
+                            user.saveUser();
+                            Navigator.pushNamed(context, '/emails');
+                            print('User saved to db');
+                          }
                         },
                         child: const Text(
                           'Login',
