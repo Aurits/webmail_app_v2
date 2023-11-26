@@ -195,9 +195,14 @@ class _EmailsPageState extends State<EmailsPage>
                   Container(
                     margin: const EdgeInsets.fromLTRB(0, 0, 15, 0),
                     child: Tab(
-                      icon: Icon(
-                        Icons.apps,
-                        color: Colors.teal[600],
+                      icon: InkWell(
+                        onTap: () {
+                          showBottonSheet();
+                        },
+                        child: Icon(
+                          Icons.apps,
+                          color: Colors.teal[600],
+                        ),
                       ),
                     ),
                   ),
@@ -231,43 +236,106 @@ class _EmailsPageState extends State<EmailsPage>
         builder: (BuildContext bc) {
           return Container(
             color: Colors.white,
-            padding: EdgeInsets.symmetric(vertical: 0, horizontal: 0),
-            child: Wrap(
+            padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 0),
+            child: const Wrap(
               children: <Widget>[
                 ListTile(
                   leading: Icon(
-                    Icons.visibility,
+                    Icons.inbox,
+                    color: Colors.teal,
                   ),
-                  title: Text("Preview"),
-                  onTap: () {},
+                  title: Text(
+                    'Inbox',
+                    style: TextStyle(
+                      color: Colors.teal,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  onTap: null,
+                ),
+                ListTile(
+                  leading: Icon(
+                    Icons.star,
+                    color: Colors.teal,
+                  ),
+                  title: Text(
+                    'Starred',
+                    style: TextStyle(
+                      color: Colors.teal,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  onTap: null,
                 ),
                 ListTile(
                   leading: Icon(
                     Icons.send,
+                    color: Colors.teal,
                   ),
-                  title: Text("Send"),
-                  onTap: () {},
+                  title: Text(
+                    'Sent',
+                    style: TextStyle(
+                      color: Colors.teal,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  onTap: null,
                 ),
                 ListTile(
                   leading: Icon(
-                    Icons.person_add,
+                    Icons.drafts,
+                    color: Colors.teal,
                   ),
-                  title: Text("Share"),
-                  onTap: () {},
+                  title: Text(
+                    'Drafts',
+                    style: TextStyle(
+                      color: Colors.teal,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  onTap: null,
                 ),
                 ListTile(
                   leading: Icon(
-                    Icons.link,
+                    Icons.delete,
+                    color: Colors.teal,
                   ),
-                  title: Text("Get Link"),
-                  onTap: () {},
+                  title: Text(
+                    'Trash',
+                    style: TextStyle(
+                      color: Colors.teal,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  onTap: null,
                 ),
                 ListTile(
                   leading: Icon(
-                    Icons.content_copy,
+                    Icons.archive,
+                    color: Colors.teal,
                   ),
-                  title: Text("Make a Copy"),
-                  onTap: () {},
+                  title: Text(
+                    'Archive',
+                    style: TextStyle(
+                      color: Colors.teal,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  onTap: null,
+                ),
+                ListTile(
+                  leading: Icon(
+                    Icons.settings,
+                    color: Colors.teal,
+                  ),
+                  title: Text(
+                    'Settings',
+                    style: TextStyle(
+                      color: Colors.teal,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  onTap: null,
                 ),
               ],
             ),
