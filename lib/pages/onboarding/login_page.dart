@@ -151,7 +151,7 @@ class _LoginPageState extends State<LoginPage> {
                           }
                         },
                         child: const Text(
-                          'Login',
+                          'Logina',
                           style: TextStyle(color: Colors.white),
                         ),
                       ),
