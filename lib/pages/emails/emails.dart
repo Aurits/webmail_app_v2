@@ -48,7 +48,7 @@ class _EmailsPageState extends State<EmailsPage>
     // Simulating an asynchronous call to fetch emails
     await Future.delayed(const Duration(seconds: 1));
 
-    Future<void> Function() fetchedEmails = await Mail.getOnlineEmails;
+    Future<void> Function() fetchedEmails = Mail.getOnlineEmails;
     setState(() {
       emails = fetchedEmails as List<Mail>;
     });
@@ -104,6 +104,45 @@ class _EmailsPageState extends State<EmailsPage>
 
       body: Column(
         children: <Widget>[
+          Container(
+            margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                const Text(
+                  "Inbox",
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Container(
+                  child: Row(
+                    children: <Widget>[
+                      IconButton(
+                        icon: const Icon(
+                          Icons.search,
+                          color: Colors.teal,
+                        ),
+                        onPressed: () {
+                          print("Pressed");
+                        },
+                      ),
+                      IconButton(
+                        icon: const Icon(
+                          Icons.more_vert,
+                          color: Colors.teal,
+                        ),
+                        onPressed: () {
+                          print("Pressed");
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
           Expanded(
             child: RefreshIndicator(
               onRefresh: _handleRefresh,
