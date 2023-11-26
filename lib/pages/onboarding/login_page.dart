@@ -144,14 +144,14 @@ class _LoginPageState extends State<LoginPage> {
                           print(
                               "Saving user.......................................................");
 
-                          if (user.username.isNotEmpty ||
-                              user.password.isNotEmpty) {
-                            user.saveUser();
-                            print('User saved to db');
-                          }
+                          // if (user.username.isNotEmpty ||
+                          //     user.password.isNotEmpty) {
+                          //   user.saveUser();
+                          //   print('User saved to db');
+                          // }
                         },
                         child: const Text(
-                          'Logina',
+                          'Login',
                           style: TextStyle(color: Colors.white),
                         ),
                       ),
