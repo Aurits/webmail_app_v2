@@ -41,7 +41,7 @@ class _EmailsPageState extends State<EmailsPage> {
 
     await _loadEmails();
 
-    //call the displayEmails
+    // Call the displayEmails
 
     Mail.displayEmails();
 
@@ -65,68 +65,77 @@ class _EmailsPageState extends State<EmailsPage> {
       backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(
+        child: Stack(
           children: [
-            const SizedBox(height: 10),
-            // Display emails
-            Expanded(
-              child: RefreshIndicator(
-                onRefresh: _handleRefresh,
-                child: ListView.builder(
-                  itemCount: emails.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    Mail email = emails[index];
-                    // Customize the ListTile according to your email model
-                    return ListTile(
-                      title: Text(email.subject),
-                      subtitle: Text(email.sender),
-                      // Add more details as needed
-                    );
-                  },
-                ),
-              ),
-            ),
-            // Display the number of emails
-            Text(
-              "You have ${emails.length} emails",
-              style: const TextStyle(
-                fontSize: 20,
-                color: Colors.black,
-              ),
-            ),
-            const SizedBox(height: 10),
-            //inkwell to refresh emails
-            InkWell(
-              onTap: _handleRefresh,
-              child: Container(
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: Colors.black,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.refresh,
-                      color: Colors.white,
+            Column(
+              children: [
+                const SizedBox(height: 10),
+                // Display emails
+                Expanded(
+                  child: RefreshIndicator(
+                    onRefresh: _handleRefresh,
+                    child: ListView.builder(
+                      itemCount: emails.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        Mail email = emails[index];
+                        // Customize the ListTile according to your email model
+                        return ListTile(
+                          title: Text(email.subject),
+                          subtitle: Text(email.sender),
+                          // Add more details as needed
+                        );
+                      },
                     ),
-                    SizedBox(width: 10),
-                    Text(
-                      "Refresh",
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
-              ),
+                // Display the number of emails
+                Text(
+                  "You have ${emails.length} emails",
+                  style: const TextStyle(
+                    fontSize: 20,
+                    color: Colors.black,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                // InkWell to refresh emails
+                InkWell(
+                  onTap: _handleRefresh,
+                  child: Container(
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: const Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.refresh,
+                          color: Colors.white,
+                        ),
+                        SizedBox(width: 10),
+                        Text(
+                          "Refresh",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: BottomNavigation(),
             ),
           ],
         ),
       ),
-      bottomNavigationBar: const BottomNavigation(),
     );
   }
 }
