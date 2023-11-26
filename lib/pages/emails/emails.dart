@@ -117,6 +117,17 @@ class _EmailsPageState extends State<EmailsPage>
                         _handleRefresh();
                       },
                     ),
+                    //filter icon
+
+                    IconButton(
+                      icon: const Icon(
+                        Icons.filter_list,
+                        color: Colors.teal,
+                      ),
+                      onPressed: () {
+                        print("Pressed");
+                      },
+                    ),
                     IconButton(
                       icon: const Icon(
                         Icons.more_vert,
