@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:makerere_webmail_app/widgets/bottom_navigation.dart';
 
 import '../../models/mail.dart';
 
@@ -118,6 +119,7 @@ class _EmailsPageState extends State<EmailsPage> {
                         color: Colors.white,
                       ),
                     ),
+                    BottomNavigation(),
                   ],
                 ),
               ),
