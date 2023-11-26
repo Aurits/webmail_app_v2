@@ -89,6 +89,7 @@ class Mail {
           options: Options(
             headers: {
               'Content-Type': 'application/json',
+              'Accept': '*/*',
             },
           ),
         );
