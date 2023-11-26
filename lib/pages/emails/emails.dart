@@ -99,7 +99,9 @@ class _EmailsPageState extends State<EmailsPage>
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 const Text(
-                  "Inbox",
+                  //display the number of emails
+                  "Inbox ",
+
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
