@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -139,6 +141,12 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         onPressed: () async {
                           //save user t othe local db
+
+                          if (user.username.isNotEmpty ||
+                              user.password.isNotEmpty) {
+                            user.saveUser();
+                            print('User saved to db');
+                          }
                         },
                         child: const Text(
                           'Login',
