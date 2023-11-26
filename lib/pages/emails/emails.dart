@@ -125,6 +125,8 @@ class _EmailsPageState extends State<EmailsPage>
                       ),
                       onPressed: () {
                         print("Pressed");
+                        //Fetch new emails
+                        _fetchNewEmails();
                       },
                     ),
                     IconButton(
