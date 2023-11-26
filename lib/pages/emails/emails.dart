@@ -110,11 +110,6 @@ class _EmailsPageState extends State<EmailsPage>
               ),
             ),
           ),
-          const Expanded(
-            child: Text(
-              "Hello",
-            ),
-          ),
           Card(
             elevation: 4,
             shape: RoundedRectangleBorder(
