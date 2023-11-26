@@ -43,17 +43,6 @@ class _EmailsPageState extends State<EmailsPage>
     });
   }
 
-  //Function to fetch new emails
-  Future<void> _fetchNewEmails() async {
-    // Simulating an asynchronous call to fetch emails
-    await Future.delayed(const Duration(seconds: 1));
-
-    Future<void> Function() fetchedEmails = Mail.getOnlineEmails;
-    setState(() {
-      emails = fetchedEmails as List<Mail>;
-    });
-  }
-
   // Function to handle pull-to-refresh
   Future<void> _handleRefresh() async {
     setState(() {
@@ -125,8 +114,7 @@ class _EmailsPageState extends State<EmailsPage>
                       ),
                       onPressed: () {
                         print("Pressed");
-                        //Fetch new emails
-                        _fetchNewEmails();
+                        _handleRefresh();
                       },
                     ),
                     IconButton(
