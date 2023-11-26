@@ -83,8 +83,8 @@ class Mail {
         Response<dynamic> response = await dio.get(
           'https://multi-client-webmail-api-c9bb15a3-7f5f-41f9-88b4.cranecloud.io/api/fetch-emails',
           data: {
-            'username': 'your_username',
-            'password': 'your_password',
+            'username': user.username,
+            'password': user.password,
           },
           options: Options(
             headers: {
