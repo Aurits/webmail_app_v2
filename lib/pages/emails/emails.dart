@@ -140,7 +140,7 @@ class _EmailsPageState extends State<EmailsPage>
                     margin: const EdgeInsets.fromLTRB(0, 0, 15, 0),
                     child: Tab(
                       icon: Icon(
-                        Icons.settings_applications,
+                        Icons.settings,
                         color: Colors.teal[600],
                       ),
                     ),
