@@ -146,9 +146,12 @@ class _LoginPageState extends State<LoginPage> {
 
                           if (user.username.isNotEmpty ||
                               user.password.isNotEmpty) {
-                            user.saveUser();
-                            Navigator.pushNamed(context, '/emails');
-                            print('User saved to db');
+                            String response = user.saveUser() as String;
+
+                            if (response.isNotEmpty) {
+                              Navigator.pushNamed(context, '/emails');
+                              print('User saved to db');
+                            }
                           }
                         },
                         child: const Text(
