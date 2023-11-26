@@ -1,5 +1,7 @@
 // ignore_for_file: avoid_print
 
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../models/mail.dart';
@@ -94,57 +96,55 @@ class _EmailsPageState extends State<EmailsPage>
       body: Column(
         children: <Widget>[
           Container(
-            margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-            child: Container(
-              width: double.infinity,
-              color: Colors.teal[50],
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    //display the number of emails
-                    "Inbox (${emails.length})",
-                    style: const TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
+            padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+            width: double.infinity,
+            color: Colors.teal[50],
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text(
+                  //display the number of emails
+                  "Inbox (${emails.length})",
+                  style: const TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Row(
+                  children: <Widget>[
+                    IconButton(
+                      icon: const Icon(
+                        Icons.search,
+                        color: Colors.teal,
+                      ),
+                      onPressed: () {
+                        print("Pressed");
+                        _handleRefresh();
+                      },
                     ),
-                  ),
-                  Row(
-                    children: <Widget>[
-                      IconButton(
-                        icon: const Icon(
-                          Icons.search,
-                          color: Colors.teal,
-                        ),
-                        onPressed: () {
-                          print("Pressed");
-                          _handleRefresh();
-                        },
-                      ),
-                      //filter icon
+                    //filter icon
 
-                      IconButton(
-                        icon: const Icon(
-                          Icons.filter_list,
-                          color: Colors.teal,
-                        ),
-                        onPressed: () {
-                          print("Pressed");
-                        },
+                    IconButton(
+                      icon: const Icon(
+                        Icons.filter_list,
+                        color: Colors.teal,
                       ),
-                      IconButton(
-                        icon: const Icon(
-                          Icons.more_vert,
-                          color: Colors.teal,
-                        ),
-                        onPressed: () {
-                          print("Pressed");
-                        },
+                      onPressed: () {
+                        print("Pressed");
+                      },
+                    ),
+                    IconButton(
+                      icon: const Icon(
+                        Icons.more_vert,
+                        color: Colors.teal,
                       ),
-                    ],
-                  ),
-                ],
-              ),
+                      onPressed: () {
+                        print("Pressed");
+                      },
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
           Expanded(
