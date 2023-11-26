@@ -140,26 +140,40 @@ class _EmailsPageState extends State<EmailsPage>
               ],
             ),
           ),
-          Expanded(
-            child: RefreshIndicator(
-              onRefresh: _handleRefresh,
-              child: ListView.builder(
-                itemCount: emails.length,
-                itemBuilder: (BuildContext context, int index) {
-                  Mail email = emails[index];
-                  // Customize the ListTile according to your email model
-                  return ListTile(
-                    subtitle: Text(email.subject,
-                        style: const TextStyle(fontWeight: FontWeight.normal)),
-                    title: Text(email.replyTo,
-                        style: const TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16)),
-                    // Add more details as needed
-                  );
-                },
-              ),
-            ),
-          ),
+          loading
+              ? const Expanded(
+                  child: Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                )
+              : emails.isEmpty
+                  ? const Expanded(
+                      child: Center(
+                        child: Text("No emails found"),
+                      ),
+                    )
+                  : Expanded(
+                      child: RefreshIndicator(
+                        onRefresh: _handleRefresh,
+                        child: ListView.builder(
+                          itemCount: emails.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            Mail email = emails[index];
+                            // Customize the ListTile according to your email model
+                            return ListTile(
+                              subtitle: Text(email.subject,
+                                  style: const TextStyle(
+                                      fontWeight: FontWeight.normal)),
+                              title: Text(email.replyTo,
+                                  style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16)),
+                              // Add more details as needed
+                            );
+                          },
+                        ),
+                      ),
+                    ),
           Card(
             elevation: 4,
             shape: RoundedRectangleBorder(
