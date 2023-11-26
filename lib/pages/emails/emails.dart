@@ -95,52 +95,56 @@ class _EmailsPageState extends State<EmailsPage>
         children: <Widget>[
           Container(
             margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text(
-                  //display the number of emails
-                  "Inbox (${emails.length})",
-                  style: const TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
+            child: Container(
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+              color: Colors.teal[40],
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    //display the number of emails
+                    "Inbox (${emails.length})",
+                    style: const TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                Row(
-                  children: <Widget>[
-                    IconButton(
-                      icon: const Icon(
-                        Icons.search,
-                        color: Colors.teal,
+                  Row(
+                    children: <Widget>[
+                      IconButton(
+                        icon: const Icon(
+                          Icons.search,
+                          color: Colors.teal,
+                        ),
+                        onPressed: () {
+                          print("Pressed");
+                          _handleRefresh();
+                        },
                       ),
-                      onPressed: () {
-                        print("Pressed");
-                        _handleRefresh();
-                      },
-                    ),
-                    //filter icon
+                      //filter icon
 
-                    IconButton(
-                      icon: const Icon(
-                        Icons.filter_list,
-                        color: Colors.teal,
+                      IconButton(
+                        icon: const Icon(
+                          Icons.filter_list,
+                          color: Colors.teal,
+                        ),
+                        onPressed: () {
+                          print("Pressed");
+                        },
                       ),
-                      onPressed: () {
-                        print("Pressed");
-                      },
-                    ),
-                    IconButton(
-                      icon: const Icon(
-                        Icons.more_vert,
-                        color: Colors.teal,
+                      IconButton(
+                        icon: const Icon(
+                          Icons.more_vert,
+                          color: Colors.teal,
+                        ),
+                        onPressed: () {
+                          print("Pressed");
+                        },
                       ),
-                      onPressed: () {
-                        print("Pressed");
-                      },
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
           Expanded(
