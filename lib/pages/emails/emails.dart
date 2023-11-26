@@ -116,29 +116,27 @@ class _EmailsPageState extends State<EmailsPage>
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Container(
-                  child: Row(
-                    children: <Widget>[
-                      IconButton(
-                        icon: const Icon(
-                          Icons.search,
-                          color: Colors.teal,
-                        ),
-                        onPressed: () {
-                          print("Pressed");
-                        },
+                Row(
+                  children: <Widget>[
+                    IconButton(
+                      icon: const Icon(
+                        Icons.search,
+                        color: Colors.teal,
                       ),
-                      IconButton(
-                        icon: const Icon(
-                          Icons.more_vert,
-                          color: Colors.teal,
-                        ),
-                        onPressed: () {
-                          print("Pressed");
-                        },
+                      onPressed: () {
+                        print("Pressed");
+                      },
+                    ),
+                    IconButton(
+                      icon: const Icon(
+                        Icons.more_vert,
+                        color: Colors.teal,
                       ),
-                    ],
-                  ),
+                      onPressed: () {
+                        print("Pressed");
+                      },
+                    ),
+                  ],
                 ),
               ],
             ),
