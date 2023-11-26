@@ -72,8 +72,12 @@ class Mail {
       // Retrieve user details from the local database
       User? user = await getUserDetails();
 
+      //print the user details here
+
       // Check if user details are available
       if (user != null) {
+        print(
+            "${user.username}${user.password}...............................");
         // Make the API request with user credentials
         Response<dynamic> response = await dio.post(
           'https://api-f973d85b-ca1e-4678-b336.cranecloud.io/api/fetch-emails',
