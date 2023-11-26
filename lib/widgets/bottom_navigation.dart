@@ -74,22 +74,22 @@ class _PrimaryBottomNavigationState extends State<PrimaryBottomNavigation>
                 indicatorWeight: 1,
                 tabs: [
                   Container(
+                    margin: const EdgeInsets.fromLTRB(0, 0, 15, 0),
                     child: Tab(
                       icon: Icon(
                         Icons.apps,
                         color: Colors.teal[600],
                       ),
                     ),
-                    margin: const EdgeInsets.fromLTRB(0, 0, 15, 0),
                   ),
                   Container(
+                    margin: const EdgeInsets.fromLTRB(0, 0, 15, 0),
                     child: Tab(
                       icon: Icon(
                         Icons.settings_applications,
                         color: Colors.teal[600],
                       ),
                     ),
-                    margin: const EdgeInsets.fromLTRB(0, 0, 15, 0),
                   ),
                 ],
                 controller: _tabController,
