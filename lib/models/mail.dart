@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print, unnecessary_null_comparison
 
 import 'package:dio/dio.dart';
+import 'package:makerere_webmail_app/models/user.dart';
 import 'package:sqflite/sqflite.dart';
 import '../utils/database.dart';
 
@@ -66,33 +67,60 @@ class Mail {
   // Fetch emails from the online API
   static Future<void> getOnlineEmails() async {
     final dio = Dio();
+
     try {
-      Response<dynamic> response = await dio.get(
-        'https://api-f973d85b-ca1e-4678-b336.cranecloud.io/api/fetch-emails',
-      );
+      // Retrieve user details from the local database
+      User? user = await getUserDetails();
 
-      if (response.statusCode == 200) {
-        dynamic data = response.data;
+      // Check if user details are available
+      if (user != null) {
+        // Make the API request with user credentials
+        Response<dynamic> response = await dio.post(
+          'https://api-f973d85b-ca1e-4678-b336.cranecloud.io/api/fetch-emails',
+          data: {
+            'username': user.username,
+            'password': user.password,
+          },
+        );
 
-        print(data);
+        if (response.statusCode == 200) {
+          dynamic data = response.data;
 
-        if (data.containsKey('emails')) {
-          List<dynamic> emails = data['emails'];
+          print(data);
 
-          int i = 0;
-          for (var x in emails) {
-            i++;
-            Mail emails = Mail.fromJson(x);
-            emails.save();
+          if (data.containsKey('emails')) {
+            List<dynamic> emails = data['emails'];
+
+            int i = 0;
+            for (var x in emails) {
+              i++;
+              // Assuming you have a Mail.fromJson method to create a Mail object
+              Mail email = Mail.fromJson(x);
+              email.save(); // Save the email to local storage
+            }
+
+            print("Saved $i emails");
           }
-
-          print(
-              "...............................Saved $i emails..........................................");
         }
+      } else {
+        print('User details not available.');
       }
     } catch (error) {
       // Handle the error case
       print("Error fetching online emails: $error");
+    }
+  }
+
+// Function to retrieve user details from the local database
+  static Future<User?> getUserDetails() async {
+    Database db = await Utils.init();
+    List<Map<String, dynamic>> results = await db.query('userTable');
+
+    if (results.isNotEmpty) {
+      // Assuming there is only one user in the database
+      return User.fromJson(results[0]);
+    } else {
+      return null;
     }
   }
 
