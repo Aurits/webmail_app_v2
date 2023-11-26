@@ -22,7 +22,8 @@ class User {
   }
 
 //save user in local database //
-  Future<void> saveUser() async {
+  Future<String> saveUser() async {
+    String response = "";
     Database db = await Utils.init();
     String resp = await initTable(db);
 
@@ -37,6 +38,7 @@ class User {
           toJson(),
           conflictAlgorithm: ConflictAlgorithm.replace,
         );
+        response = 'Saved user successfully';
         print("Saved successfully");
       } catch (e) {
         print("Failed db save: $e");
@@ -44,6 +46,7 @@ class User {
     } else {
       print("Table not created");
     }
+    return response;
   }
 
   // Initialize the database table
