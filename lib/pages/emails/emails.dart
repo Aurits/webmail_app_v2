@@ -78,9 +78,14 @@ class _EmailsPageState extends State<EmailsPage>
             print("Pressed");
           },
           elevation: 2,
-          child: const Icon(
-            Icons.edit,
-            color: Colors.white,
+          child: InkWell(
+            onTap: () {
+              Navigator.pushNamed(context, '/compose');
+            },
+            child: const Icon(
+              Icons.edit,
+              color: Colors.white,
+            ),
           ),
         ),
       ),
