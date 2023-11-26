@@ -39,6 +39,7 @@ class _EmailsPageState extends State<EmailsPage>
     List<Mail> fetchedEmails = await Mail.getItems();
     setState(() {
       emails = fetchedEmails;
+      loading = false;
     });
   }
 
