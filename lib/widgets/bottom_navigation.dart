@@ -1,16 +1,14 @@
 // ignore_for_file: avoid_print
-
 import 'package:flutter/material.dart';
 
-class PrimaryBottomNavigation extends StatefulWidget {
-  const PrimaryBottomNavigation({super.key});
+class BottomNavigation extends StatefulWidget {
+  const BottomNavigation({super.key});
 
   @override
-  State<PrimaryBottomNavigation> createState() =>
-      _PrimaryBottomNavigationState();
+  State<BottomNavigation> createState() => _BottomNavigationState();
 }
 
-class _PrimaryBottomNavigationState extends State<PrimaryBottomNavigation>
+class _BottomNavigationState extends State<BottomNavigation>
     with SingleTickerProviderStateMixin {
   TabController? _tabController;
 
