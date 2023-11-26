@@ -139,8 +139,10 @@ class _LoginPageState extends State<LoginPage> {
                             borderRadius: BorderRadius.circular(16.0),
                           ),
                         ),
-                        onPressed: () async {
+                        onPressed: () {
                           //save user t othe local db
+                          print(
+                              "Saving user.......................................................");
 
                           if (user.username.isNotEmpty ||
                               user.password.isNotEmpty) {
