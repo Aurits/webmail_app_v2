@@ -5,8 +5,8 @@ import 'package:sqflite/sqflite.dart';
 import '../utils/database.dart';
 
 class User {
-  final String username;
-  final String password;
+  String username;
+  String password;
 
   User({required this.username, required this.password});
 

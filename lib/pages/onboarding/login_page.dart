@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+
 // ignore: unused_import
 import 'package:url_launcher/url_launcher.dart';
+
+import '../../models/user.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -12,6 +15,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  User user = User(username: '', password: '');
   final _formKey = GlobalKey<FormBuilderState>();
   @override
   Widget build(BuildContext context) {
@@ -54,6 +58,7 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       FormBuilderTextField(
                         name: 'username',
+                        onChanged: (value) => user.username = value.toString(),
                         decoration: const InputDecoration(
                           labelText: 'Username',
                           labelStyle: TextStyle(color: Colors.black),
@@ -74,6 +79,7 @@ class _LoginPageState extends State<LoginPage> {
                       const SizedBox(height: 20),
                       FormBuilderTextField(
                         name: 'password',
+                        onChanged: (value) => user.password = value.toString(),
                         obscureText:
                             true, // Set this property to true to hide the password
                         decoration: const InputDecoration(
@@ -132,7 +138,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                         onPressed: () async {
-                          Navigator.pushNamed(context, '/emails');
+                          //save user t othe local db
                         },
                         child: const Text(
                           'Login',
