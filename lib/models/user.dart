@@ -22,7 +22,7 @@ class User {
   }
 
 //save user in local database //
-  Future<void> save() async {
+  Future<void> saveUser() async {
     Database db = await Utils.init();
     String resp = await initTable(db);
 
