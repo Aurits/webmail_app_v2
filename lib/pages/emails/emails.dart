@@ -204,9 +204,14 @@ class _EmailsPageState extends State<EmailsPage>
                   Container(
                     margin: const EdgeInsets.fromLTRB(0, 0, 15, 0),
                     child: Tab(
-                      icon: Icon(
-                        Icons.settings,
-                        color: Colors.teal[600],
+                      icon: InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/settings');
+                        },
+                        child: Icon(
+                          Icons.settings,
+                          color: Colors.teal[600],
+                        ),
                       ),
                     ),
                   ),
