@@ -14,7 +14,7 @@ class _EmailsPageState extends State<EmailsPage>
     with SingleTickerProviderStateMixin {
   List<Mail> emails = [];
 
-  bool loading = true;
+  bool loading = false;
   TabController? _tabController;
 
   @override
