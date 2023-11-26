@@ -102,8 +102,9 @@ class _EmailsPageState extends State<EmailsPage>
                   Mail email = emails[index];
                   // Customize the ListTile according to your email model
                   return ListTile(
-                    title: Text(email.subject),
-                    subtitle: Text(email.sender),
+                    title: Text(email.subject,
+                        style: const TextStyle(fontWeight: FontWeight.bold)),
+                    subtitle: Text(email.message),
                     // Add more details as needed
                   );
                 },
