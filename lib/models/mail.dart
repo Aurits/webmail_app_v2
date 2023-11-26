@@ -55,7 +55,8 @@ class Mail {
       await getOnlineEmails();
       emails = await getLocalEmails();
     } else {
-      getOnlineEmails();
+      print("Fetching online emails for refresh...");
+      await getOnlineEmails();
       emails = await getLocalEmails();
     }
     print(emails);
