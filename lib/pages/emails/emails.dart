@@ -103,8 +103,10 @@ class _EmailsPageState extends State<EmailsPage>
                   // Customize the ListTile according to your email model
                   return ListTile(
                     subtitle: Text(email.subject,
-                        style: const TextStyle(fontWeight: FontWeight.bold)),
-                    title: Text(email.receiver),
+                        style: const TextStyle(fontWeight: FontWeight.normal)),
+                    title: Text(email.replyTo,
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16)),
                     // Add more details as needed
                   );
                 },
