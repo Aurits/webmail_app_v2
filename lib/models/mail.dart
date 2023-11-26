@@ -79,12 +79,18 @@ class Mail {
         print(
             "${user.username}${user.password}...............................");
         // Make the API request with user credentials
+
         Response<dynamic> response = await dio.post(
           'https://multi-client-webmail-api-c9bb15a3-7f5f-41f9-88b4.cranecloud.io/api/fetch-emails',
           data: {
-            'username': user.username,
-            'password': user.password,
+            'username': 'your_username',
+            'password': 'your_password',
           },
+          options: Options(
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          ),
         );
 
         if (response.statusCode == 200) {
