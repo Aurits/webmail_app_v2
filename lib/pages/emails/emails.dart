@@ -123,10 +123,10 @@ class _EmailsPageState extends State<EmailsPage> {
                 ),
               ),
             ),
-            const BottomNavigation(),
           ],
         ),
       ),
+      bottomNavigationBar: const BottomNavigation(),
     );
   }
 }
