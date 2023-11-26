@@ -175,10 +175,15 @@ class Mail {
   }
 
   //TO DISPLAY THE NAME OF THE EMAIL IN THE DATABASE BY PRINT
-  static void displayEmails() async {
-    List<Mail> emails = await getLocalEmails();
-    for (var x in emails) {
-      print(x.subject);
-    }
+  static void deleteEmails() async {
+    Database db = await Utils.init();
+    await initTable(db);
+
+    print(
+        'local...............................................................................');
+
+    db.delete('emailTable');
+
+    print('deleted');
   }
 }

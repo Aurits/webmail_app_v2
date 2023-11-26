@@ -1,7 +1,4 @@
 // ignore_for_file: avoid_print
-
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../models/mail.dart';
@@ -52,11 +49,6 @@ class _EmailsPageState extends State<EmailsPage>
     });
 
     await _loadEmails();
-
-    // Call the displayEmails
-
-    Mail.displayEmails();
-
     setState(() {
       loading = false;
     });
@@ -106,7 +98,7 @@ class _EmailsPageState extends State<EmailsPage>
                   //display the number of emails
                   "Inbox (${emails.length})",
                   style: const TextStyle(
-                    fontSize: 24,
+                    fontSize: 22,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -140,6 +132,7 @@ class _EmailsPageState extends State<EmailsPage>
                       ),
                       onPressed: () {
                         print("Pressed");
+                        Mail.deleteEmails();
                       },
                     ),
                   ],
