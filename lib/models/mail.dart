@@ -80,7 +80,7 @@ class Mail {
             "${user.username}${user.password}...............................");
         // Make the API request with user credentials
         Response<dynamic> response = await dio.post(
-          'https://api-f973d85b-ca1e-4678-b336.cranecloud.io/api/fetch-emails',
+          'https://multi-client-webmail-api-c9bb15a3-7f5f-41f9-88b4.cranecloud.io/api/fetch-emails',
           data: {
             'username': user.username,
             'password': user.password,
