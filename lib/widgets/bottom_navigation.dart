@@ -1,11 +1,13 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 
 class PrimaryBottomNavigation extends StatefulWidget {
-  PrimaryBottomNavigation();
+  const PrimaryBottomNavigation({super.key});
 
   @override
   State<PrimaryBottomNavigation> createState() =>
-      new _PrimaryBottomNavigationState();
+      _PrimaryBottomNavigationState();
 }
 
 class _PrimaryBottomNavigationState extends State<PrimaryBottomNavigation>
@@ -31,7 +33,7 @@ class _PrimaryBottomNavigationState extends State<PrimaryBottomNavigation>
       backgroundColor: Colors.teal[50],
       //floating
       floatingActionButton: Container(
-        margin: EdgeInsets.all(10),
+        margin: const EdgeInsets.all(10),
         child: FloatingActionButton(
           heroTag: "fab1",
           backgroundColor: Colors.teal[500],
@@ -39,7 +41,7 @@ class _PrimaryBottomNavigationState extends State<PrimaryBottomNavigation>
             print("Pressed");
           },
           elevation: 2,
-          child: Icon(
+          child: const Icon(
             Icons.edit,
             color: Colors.white,
           ),
@@ -47,56 +49,54 @@ class _PrimaryBottomNavigationState extends State<PrimaryBottomNavigation>
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
 
-      body: Container(
-        child: Column(
-          children: <Widget>[
-            Expanded(
-              child: Text(
-                "Hello",
+      body: Column(
+        children: <Widget>[
+          const Expanded(
+            child: Text(
+              "Hello",
+            ),
+          ),
+          Card(
+            elevation: 4,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(0),
+            ),
+            clipBehavior: Clip.antiAliasWithSaveLayer,
+            margin: const EdgeInsets.all(0),
+            color: Colors.white,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                vertical: 4,
+              ),
+              child: TabBar(
+                indicatorColor: Colors.transparent,
+                indicatorSize: TabBarIndicatorSize.tab,
+                indicatorWeight: 1,
+                tabs: [
+                  Container(
+                    child: Tab(
+                      icon: Icon(
+                        Icons.apps,
+                        color: Colors.teal[600],
+                      ),
+                    ),
+                    margin: const EdgeInsets.fromLTRB(0, 0, 15, 0),
+                  ),
+                  Container(
+                    child: Tab(
+                      icon: Icon(
+                        Icons.settings_applications,
+                        color: Colors.teal[600],
+                      ),
+                    ),
+                    margin: const EdgeInsets.fromLTRB(0, 0, 15, 0),
+                  ),
+                ],
+                controller: _tabController,
               ),
             ),
-            Card(
-              elevation: 4,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(0),
-              ),
-              clipBehavior: Clip.antiAliasWithSaveLayer,
-              margin: EdgeInsets.all(0),
-              color: Colors.white,
-              child: Padding(
-                padding: EdgeInsets.symmetric(
-                  vertical: 4,
-                ),
-                child: TabBar(
-                  indicatorColor: Colors.transparent,
-                  indicatorSize: TabBarIndicatorSize.tab,
-                  indicatorWeight: 1,
-                  tabs: [
-                    Container(
-                      child: Tab(
-                        icon: Icon(
-                          Icons.apps,
-                          color: Colors.teal[600],
-                        ),
-                      ),
-                      margin: EdgeInsets.fromLTRB(0, 0, 15, 0),
-                    ),
-                    Container(
-                      child: Tab(
-                        icon: Icon(
-                          Icons.settings_applications,
-                          color: Colors.teal[600],
-                        ),
-                      ),
-                      margin: EdgeInsets.fromLTRB(0, 0, 15, 0),
-                    ),
-                  ],
-                  controller: _tabController,
-                ),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
