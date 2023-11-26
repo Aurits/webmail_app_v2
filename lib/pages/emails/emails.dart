@@ -35,11 +35,22 @@ class _EmailsPageState extends State<EmailsPage>
   // Function to load emails
   Future<void> _loadEmails() async {
     // Simulating an asynchronous call to fetch emails
-    await Future.delayed(const Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 1));
 
     List<Mail> fetchedEmails = await Mail.getItems();
     setState(() {
       emails = fetchedEmails;
+    });
+  }
+
+  //Function to fetch new emails
+  Future<void> _fetchNewEmails() async {
+    // Simulating an asynchronous call to fetch emails
+    await Future.delayed(const Duration(seconds: 1));
+
+    Future<void> Function() fetchedEmails = await Mail.getOnlineEmails;
+    setState(() {
+      emails = fetchedEmails as List<Mail>;
     });
   }
 
