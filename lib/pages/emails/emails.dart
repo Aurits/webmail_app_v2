@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:makerere_webmail_app/adapters/email_adapter.dart';
+import 'package:makerere_webmail_app/pages/emails/email_detail_page.dart';
 
 import '../../models/mail.dart';
 
@@ -165,11 +166,16 @@ class _EmailsPageState extends State<EmailsPage>
                   : Expanded(
                       child: RefreshIndicator(
                         onRefresh: _handleRefresh,
-                        //display emails here
                         child: EmailAdapter(emails, (index, mail) {
                           // Handle the click event, if needed
-                        })
-                            .getView(),
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  EmailDetailPage(email: emails[index]),
+                            ),
+                          );
+                        }).getView(),
                       ),
                     ),
           Card(
