@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:makerere_webmail_app/models/mail.dart';
 
 class EmailAdapter {
@@ -81,13 +82,13 @@ class _ItemTileState extends State<ItemTile> {
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    trailing: Container(
+                    trailing: SizedBox(
                       width: 80,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Text(
-                            widget.object.date,
+                            _getFormattedDate(widget.object.date),
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
@@ -120,5 +121,11 @@ class _ItemTileState extends State<ItemTile> {
         ),
       ),
     );
+  }
+
+  // Function to get formatted date
+  String _getFormattedDate(String dateString) {
+    DateTime date = DateTime.parse(dateString);
+    return DateFormat.MMMd().format(date); // Format: Month Day
   }
 }
