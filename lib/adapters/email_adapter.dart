@@ -97,7 +97,7 @@ class _ItemTileState extends State<ItemTile> {
                             ),
                           ),
                           const SizedBox(
-                            height: 4,
+                            height: 1,
                           ),
                           const Icon(
                             Icons.star_border,
