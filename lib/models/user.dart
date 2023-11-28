@@ -66,7 +66,7 @@ class User {
       return resp;
     }
 //delete the table
-    await db.execute('DROP TABLE IF EXISTS userTable');
+    // await db.execute('DROP TABLE IF EXISTS userTable');
     try {
       await db.execute('''
         CREATE TABLE IF NOT EXISTS userTable(
