@@ -1,6 +1,8 @@
 // ignore_for_file: avoid_print
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:makerere_webmail_app/adapters/email_adapter.dart';
+
 import '../../models/mail.dart';
 
 class EmailsPage extends StatefulWidget {
@@ -162,23 +164,11 @@ class _EmailsPageState extends State<EmailsPage>
                   : Expanded(
                       child: RefreshIndicator(
                         onRefresh: _handleRefresh,
-                        child: ListView.builder(
-                          itemCount: emails.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            Mail email = emails[index];
-                            // Customize the ListTile according to your email model
-                            return ListTile(
-                              subtitle: Text(email.subject,
-                                  style: const TextStyle(
-                                      fontWeight: FontWeight.normal)),
-                              title: Text(email.replyTo,
-                                  style: const TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16)),
-                              // Add more details as needed
-                            );
-                          },
-                        ),
+                        //display emails here
+                        child: EmailAdapter(emails, (index, mail) {
+                          // Handle the click event, if needed
+                        })
+                            .getView(),
                       ),
                     ),
           Card(
