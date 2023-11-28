@@ -83,7 +83,7 @@ class _ItemTileState extends State<ItemTile> {
                       overflow: TextOverflow.ellipsis,
                     ),
                     trailing: SizedBox(
-                      width: 80,
+                      width: 30,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
@@ -92,7 +92,7 @@ class _ItemTileState extends State<ItemTile> {
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
-                              fontSize: 12,
+                              fontSize: 10,
                               color: Colors.grey,
                             ),
                           ),
@@ -101,7 +101,7 @@ class _ItemTileState extends State<ItemTile> {
                           ),
                           const Icon(
                             Icons.star_border,
-                            size: 16,
+                            size: 12,
                           ),
                         ],
                       ),
