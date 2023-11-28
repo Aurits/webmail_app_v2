@@ -1,6 +1,9 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 
 import '../../models/mail.dart';
+import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 
 class EmailDetailPage extends StatelessWidget {
   final Mail email;
@@ -49,10 +52,51 @@ class EmailDetailPage extends StatelessWidget {
             ),
             const Divider(),
             const SizedBox(height: 16),
-            //Html(data: email.message),
-            Text(
+            HtmlWidget(
+              // the first parameter (`html`) is required
               email.message,
-              style: const TextStyle(fontSize: 16),
+
+              // all other parameters are optional, a few notable params:
+
+              // specify custom styling for an element
+              // see supported inline styling below
+              customStylesBuilder: (element) {
+                if (element.classes.contains('foo')) {
+                  return {'color': 'red'};
+                }
+
+                return null;
+              },
+
+              customWidgetBuilder: (element) {
+                if (element.attributes['foo'] == 'bar') {
+                  // render a custom block widget that takes the full width
+                  return Container();
+                }
+
+                if (element.attributes['fizz'] == 'buzz') {
+                  // render a custom widget inline with surrounding text
+                  return InlineCustomWidget(
+                    child: Container(),
+                  );
+                }
+
+                return null;
+              },
+
+              // this callback will be triggered when user taps a link
+              onTapUrl: (url) {
+                print('tapped url');
+                return true;
+              },
+
+              // select the render mode for HTML body
+              // by default, a simple `Column` is rendered
+              // consider using `ListView` or `SliverList` for better performance
+              renderMode: RenderMode.column,
+
+              // set the default styling for text
+              textStyle: const TextStyle(fontSize: 14),
             ),
             const SizedBox(height: 16),
             if (email.attachments.isNotEmpty)
