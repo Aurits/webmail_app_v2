@@ -60,7 +60,7 @@ class _ItemTileState extends State<ItemTile> {
               width: 50,
               height: 50,
               child: CircleAvatar(
-                // backgroundColor: _getAvatarColor(widget.object.replyTo),
+                backgroundColor: _getAvatarColor(widget.object.replyTo),
                 child: Text(
                   widget.object.replyTo.isNotEmpty
                       ? widget.object.replyTo[0].toUpperCase()
@@ -139,5 +139,16 @@ class _ItemTileState extends State<ItemTile> {
   String _getFormattedDate(String dateString) {
     DateTime date = DateTime.parse(dateString);
     return DateFormat.MMMd().format(date); // Format: Month Day
+  }
+
+  Color _getAvatarColor(String text) {
+    // A simple function to generate a color based on the text
+    // You can replace this logic with your own color generation algorithm
+    int hash = 0;
+    for (int i = 0; i < text.length; i++) {
+      hash = text.codeUnitAt(i) + ((hash << 5) - hash);
+    }
+    final int finalHash = hash & 0xFFFFFF;
+    return Color(finalHash).withOpacity(1.0);
   }
 }
