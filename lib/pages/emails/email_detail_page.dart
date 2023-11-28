@@ -75,7 +75,7 @@ class EmailDetailPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 16),
               color: Colors.grey[200],
               child: Text(
-                'This email is brought to you by Makerere University',
+                'This email is brought to you by Makerere Webmail',
                 style: TextStyle(
                   color: Colors.grey[600],
                   fontStyle: FontStyle.italic,
