@@ -20,7 +20,7 @@ class User {
   }
 
   Map<String, dynamic> toJson() {
-    return {'username': username, 'password': password};
+    return {'username': username, 'password': password, 'timestamp': timestamp};
   }
 
   // Save user in the local database
@@ -64,7 +64,7 @@ class User {
       return resp;
     }
 //delete the table
-    //await db.execute('DROP TABLE IF EXISTS userTable');
+    await db.execute('DROP TABLE IF EXISTS userTable');
     try {
       await db.execute('''
         CREATE TABLE IF NOT EXISTS usersTable(
