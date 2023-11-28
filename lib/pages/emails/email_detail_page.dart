@@ -21,14 +21,15 @@ class EmailDetailPage extends StatelessWidget {
           children: [
             Text(
               email.subject,
+              textAlign: TextAlign.center,
               style: const TextStyle(
-                fontSize: 22,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 12),
             Text(
-              'From: ${email.sender}',
+              'From: ${email.replyTo}',
               style: const TextStyle(fontSize: 16),
             ),
             const SizedBox(height: 8),
