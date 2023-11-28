@@ -160,19 +160,16 @@ class _LoginPageState extends State<LoginPage> {
                             print("Form validated successfully");
                             print("Username: ${user.username}");
                             print("Password: ${user.password}");
+                            print(
+                                "Saving user.......................................................");
 
-                            // Reset the form
-                            _formKey.currentState?.reset();
-                          }
-                          print(
-                              "Saving user.......................................................");
-
-                          if (user.username.isNotEmpty ||
-                              user.password.isNotEmpty) {
                             user.saveUser();
 
                             Navigator.pushNamed(context, '/emails');
                             print('User saved to db');
+
+                            // Reset the form
+                            _formKey.currentState?.reset();
                           }
                         },
                         child: const Text(
