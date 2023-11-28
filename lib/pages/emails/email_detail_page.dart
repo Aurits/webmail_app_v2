@@ -64,40 +64,40 @@ class EmailDetailPage extends StatelessWidget {
 
               // specify custom styling for an element
               // see supported inline styling below
-              customStylesBuilder: (element) {
-                if (element.classes.contains('foo')) {
-                  return {'color': 'red'};
-                }
+              // customStylesBuilder: (element) {
+              //   if (element.classes.contains('foo')) {
+              //     return {'color': 'red'};
+              //   }
 
-                return null;
-              },
+              //   return null;
+              // },
 
-              customWidgetBuilder: (element) {
-                if (element.attributes['foo'] == 'bar') {
-                  // render a custom block widget that takes the full width
-                  return Container();
-                }
+              // customWidgetBuilder: (element) {
+              //   if (element.attributes['foo'] == 'bar') {
+              //     // render a custom block widget that takes the full width
+              //     return Container();
+              //   }
 
-                if (element.attributes['fizz'] == 'buzz') {
-                  // render a custom widget inline with surrounding text
-                  return InlineCustomWidget(
-                    child: Container(),
-                  );
-                }
+              //   if (element.attributes['fizz'] == 'buzz') {
+              //     // render a custom widget inline with surrounding text
+              //     return InlineCustomWidget(
+              //       child: Container(),
+              //     );
+              //   }
 
-                return null;
-              },
+              //   return null;
+              // },
 
-              // this callback will be triggered when user taps a link
-              onTapUrl: (url) {
-                print('tapped url');
-                return true;
-              },
+              // // this callback will be triggered when user taps a link
+              // onTapUrl: (url) {
+              //   print('tapped url');
+              //   return true;
+              // },
 
-              // select the render mode for HTML body
-              // by default, a simple `Column` is rendered
-              // consider using `ListView` or `SliverList` for better performance
-              renderMode: RenderMode.column,
+              // // select the render mode for HTML body
+              // // by default, a simple `Column` is rendered
+              // // consider using `ListView` or `SliverList` for better performance
+              // renderMode: RenderMode.column,
 
               // set the default styling for text
               textStyle: const TextStyle(fontSize: 14),
