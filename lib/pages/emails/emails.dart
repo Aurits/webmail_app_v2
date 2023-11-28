@@ -105,9 +105,9 @@ class _EmailsPageState extends State<EmailsPage>
               children: <Widget>[
                 Text(
                   //display the number of emails
-                  "Inbox (${emails.length})",
+                  "All mails (${emails.length})",
                   style: const TextStyle(
-                    fontSize: 20,
+                    fontSize: 18,
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
