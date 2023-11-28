@@ -169,7 +169,7 @@ class _LoginPageState extends State<LoginPage> {
                             print('User saved to db');
 
                             // Reset the form
-                            _formKey.currentState?.reset();
+                            // _formKey.currentState?.reset();
                           }
                         },
                         child: const Text(
