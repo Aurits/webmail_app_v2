@@ -175,7 +175,7 @@ packages:
     source: hosted
     version: "2.2.1"
   flutter_layout_grid:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flutter_layout_grid
       sha256: "86c1b21520612edfbb93f189b3ec05058470570f3a5c08ce10c92cc76a6e814e"
