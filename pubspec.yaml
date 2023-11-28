@@ -33,9 +33,6 @@ dependencies:
 
   dio: ^5.3.3
   sqflite: ^2.3.0
-  path_provider: ^2.1.1
-  cached_network_image: ^3.3.0
-  carousel_slider: ^4.2.1
   flutter_form_builder: ^9.1.1
   url_launcher: ^6.2.1
 
@@ -44,7 +41,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   form_builder_validators: ^9.1.0
   intl: ^0.18.1
-  flutter_widget_from_html: ^0.14.7
+  # flutter_widget_from_html: ^0.14.7
 
 dev_dependencies:
   flutter_test:

@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 
 import '../../models/mail.dart';
-import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
+// import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 
 class EmailDetailPage extends StatelessWidget {
   final Mail email;
@@ -56,52 +56,52 @@ class EmailDetailPage extends StatelessWidget {
             ),
             const Divider(),
             const SizedBox(height: 16),
-            HtmlWidget(
-              // the first parameter (`html`) is required
-              email.message,
+            // HtmlWidget(
+            //   // the first parameter (`html`) is required
+            //   email.message,
 
-              // all other parameters are optional, a few notable params:
+            // all other parameters are optional, a few notable params:
 
-              // specify custom styling for an element
-              // see supported inline styling below
-              // customStylesBuilder: (element) {
-              //   if (element.classes.contains('foo')) {
-              //     return {'color': 'red'};
-              //   }
+            // specify custom styling for an element
+            // see supported inline styling below
+            // customStylesBuilder: (element) {
+            //   if (element.classes.contains('foo')) {
+            //     return {'color': 'red'};
+            //   }
 
-              //   return null;
-              // },
+            //   return null;
+            // },
 
-              // customWidgetBuilder: (element) {
-              //   if (element.attributes['foo'] == 'bar') {
-              //     // render a custom block widget that takes the full width
-              //     return Container();
-              //   }
+            // customWidgetBuilder: (element) {
+            //   if (element.attributes['foo'] == 'bar') {
+            //     // render a custom block widget that takes the full width
+            //     return Container();
+            //   }
 
-              //   if (element.attributes['fizz'] == 'buzz') {
-              //     // render a custom widget inline with surrounding text
-              //     return InlineCustomWidget(
-              //       child: Container(),
-              //     );
-              //   }
+            //   if (element.attributes['fizz'] == 'buzz') {
+            //     // render a custom widget inline with surrounding text
+            //     return InlineCustomWidget(
+            //       child: Container(),
+            //     );
+            //   }
 
-              //   return null;
-              // },
+            //   return null;
+            // },
 
-              // // this callback will be triggered when user taps a link
-              // onTapUrl: (url) {
-              //   print('tapped url');
-              //   return true;
-              // },
+            // // this callback will be triggered when user taps a link
+            // onTapUrl: (url) {
+            //   print('tapped url');
+            //   return true;
+            // },
 
-              // // select the render mode for HTML body
-              // // by default, a simple `Column` is rendered
-              // // consider using `ListView` or `SliverList` for better performance
-              // renderMode: RenderMode.column,
+            // // select the render mode for HTML body
+            // // by default, a simple `Column` is rendered
+            // // consider using `ListView` or `SliverList` for better performance
+            // renderMode: RenderMode.column,
 
-              // set the default styling for text
-              textStyle: const TextStyle(fontSize: 14),
-            ),
+            // set the default styling for text
+            //   textStyle: const TextStyle(fontSize: 14),
+            // ),
             const SizedBox(height: 16),
             if (email.attachments.isNotEmpty)
               Column(
