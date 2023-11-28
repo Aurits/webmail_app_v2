@@ -61,7 +61,7 @@ class _ItemTileState extends State<ItemTile> {
               child: CircleAvatar(),
             ),
             Container(
-              width: 20,
+              width: 4,
             ),
             Expanded(
               child: Column(
@@ -69,13 +69,13 @@ class _ItemTileState extends State<ItemTile> {
                 children: [
                   ListTile(
                     title: Text(
-                      widget.object.subject,
+                      widget.object.replyTo,
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     subtitle: Text(
-                      widget.object.body,
+                      widget.object.subject,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -87,10 +87,10 @@ class _ItemTileState extends State<ItemTile> {
                     ),
                   ),
                   Container(
-                    height: 5,
+                    height: 4,
                   ),
                   Divider(
-                    height: 1,
+                    height: 0,
                     color: Colors.grey[300],
                   ),
                 ],
