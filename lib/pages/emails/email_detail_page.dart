@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart';
+
 import '../../models/mail.dart';
 
 class EmailDetailPage extends StatelessWidget {
@@ -47,7 +47,11 @@ class EmailDetailPage extends StatelessWidget {
               style: const TextStyle(fontSize: 16),
             ),
             const SizedBox(height: 16),
-            // Html(data: email.message),
+            //Html(data: email.message),
+            Text(
+              email.message,
+              style: const TextStyle(fontSize: 16),
+            ),
             const SizedBox(height: 16),
             if (email.attachments.isNotEmpty)
               Column(
