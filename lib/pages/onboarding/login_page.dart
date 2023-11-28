@@ -39,8 +39,8 @@ class _LoginPageState extends State<LoginPage> {
           children: [
             const Image(
               image: AssetImage('assets/images/logo.png'),
-              height: 80,
-              width: 80,
+              height: 70,
+              width: 70,
             ),
             const Text(
               'Enter your email and password',
@@ -50,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             const SizedBox(
-              height: 10,
+              height: 8,
             ),
             SingleChildScrollView(
               child: Padding(
@@ -85,7 +85,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         cursorColor: Colors.black,
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 10),
                       FormBuilderTextField(
                         name: 'password',
                         autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -112,7 +112,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         cursorColor: Colors.black,
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 10),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
@@ -144,7 +144,7 @@ class _LoginPageState extends State<LoginPage> {
                           )
                         ],
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 10),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.green,
