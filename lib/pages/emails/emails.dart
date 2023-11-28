@@ -99,7 +99,7 @@ class _EmailsPageState extends State<EmailsPage>
           Container(
             padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
             width: double.infinity,
-            color: Colors.teal[50],
+            color: Colors.green[400],
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
@@ -108,6 +108,7 @@ class _EmailsPageState extends State<EmailsPage>
                   "Inbox (${emails.length})",
                   style: const TextStyle(
                     fontSize: 20,
+                    color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -116,7 +117,7 @@ class _EmailsPageState extends State<EmailsPage>
                     IconButton(
                       icon: const Icon(
                         Icons.search,
-                        color: Colors.teal,
+                        color: Colors.black,
                       ),
                       onPressed: () {
                         print("Pressed");
@@ -128,7 +129,7 @@ class _EmailsPageState extends State<EmailsPage>
                     IconButton(
                       icon: const Icon(
                         Icons.filter_list,
-                        color: Colors.teal,
+                        color: Colors.black,
                       ),
                       onPressed: () {
                         print("Pressed");
@@ -137,7 +138,7 @@ class _EmailsPageState extends State<EmailsPage>
                     IconButton(
                       icon: const Icon(
                         Icons.more_vert,
-                        color: Colors.teal,
+                        color: Colors.black,
                       ),
                       onPressed: () {
                         print("Pressed");
