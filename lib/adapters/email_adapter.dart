@@ -62,7 +62,7 @@ class _ItemTileState extends State<ItemTile> {
               child: CircleAvatar(),
             ),
             Container(
-              width: 4,
+              width: 1,
             ),
             Expanded(
               child: Column(
