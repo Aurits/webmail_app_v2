@@ -59,7 +59,13 @@ class _ItemTileState extends State<ItemTile> {
             const SizedBox(
               width: 50,
               height: 50,
-              child: CircleAvatar(),
+              child: CircleAvatar(
+                backgroundColor: Colors.green,
+                child: Icon(
+                  Icons.person,
+                  color: Colors.white,
+                ),
+              ),
             ),
             Container(
               width: 1,
