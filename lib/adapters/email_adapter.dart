@@ -56,14 +56,20 @@ class _ItemTileState extends State<ItemTile> {
             Container(
               width: 5,
             ),
-            const SizedBox(
+            SizedBox(
               width: 50,
               height: 50,
               child: CircleAvatar(
-                backgroundColor: Colors.green,
-                child: Icon(
-                  Icons.person,
-                  color: Colors.white,
+                // backgroundColor: _getAvatarColor(widget.object.replyTo),
+                child: Text(
+                  widget.object.replyTo.isNotEmpty
+                      ? widget.object.replyTo[0].toUpperCase()
+                      : '?', // Display '?' if replyTo is empty
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
                 ),
               ),
             ),
