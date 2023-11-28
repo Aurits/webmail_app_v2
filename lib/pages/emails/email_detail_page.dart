@@ -65,7 +65,6 @@ class EmailDetailPage extends StatelessWidget {
                 ],
               ),
             const SizedBox(height: 32),
-            // Footer
             Container(
               alignment: Alignment.center,
               padding: const EdgeInsets.symmetric(vertical: 16),
