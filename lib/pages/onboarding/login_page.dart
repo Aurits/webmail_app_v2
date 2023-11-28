@@ -62,8 +62,7 @@ class _LoginPageState extends State<LoginPage> {
                         name: 'username',
                         onChanged: (value) => user.username = value.toString(),
                         decoration: const InputDecoration(
-                          icon: Icon(Icons.person),
-                          iconColor: Colors.black,
+                          prefixIcon: Icon(Icons.person),
                           labelText: 'Username',
                           labelStyle: TextStyle(color: Colors.black),
                           border: OutlineInputBorder(
@@ -88,8 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                             true, // Set this property to true to hide the password
                         decoration: const InputDecoration(
                           labelText: 'Password',
-                          icon: Icon(Icons.lock),
-                          iconColor: Colors.black,
+                          prefixIcon: Icon(Icons.lock),
                           labelStyle: TextStyle(color: Colors.black),
                           border: OutlineInputBorder(
                             borderRadius:
