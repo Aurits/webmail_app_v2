@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:makerere_webmail_app/models/mail.dart';
 
-class ListBasicAdapter {
+class EmailAdapter {
   List? emails = <Mail>[];
   List itemsTile = <ItemTile>[];
 
-  ListBasicAdapter(this.emails, onItemClick) {
+  EmailAdapter(this.emails, onItemClick) {
     for (int i = 0; i < emails!.length; i++) {
       itemsTile
           .add(ItemTile(index: i, object: emails![i], onClick: onItemClick));
