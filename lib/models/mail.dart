@@ -127,6 +127,9 @@ class Mail {
     Database db = await Utils.init();
     List<Map<String, dynamic>> results = await db.query('usersTable');
 
+    // print all the results
+    print(results);
+
     if (results.isNotEmpty) {
       // Assuming there is only one user in the database
       return User.fromJson(results[0]);
