@@ -34,7 +34,7 @@ class User {
     if (resp.isNotEmpty) {
       print("Deleting existing user...");
       // Delete the existing user
-      await db.delete('userTable');
+      await db.delete('usersTable');
 
       print("Saving new user...");
       try {
