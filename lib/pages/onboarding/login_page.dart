@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
 
 // ignore: unused_import
 import 'package:url_launcher/url_launcher.dart';
@@ -60,6 +61,11 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       FormBuilderTextField(
                         name: 'username',
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                        validator: FormBuilderValidators.compose([
+                          FormBuilderValidators.required(),
+                          FormBuilderValidators.email(),
+                        ]),
                         onChanged: (value) => user.username = value.toString(),
                         decoration: const InputDecoration(
                           prefixIcon: Icon(Icons.person),
@@ -82,6 +88,11 @@ class _LoginPageState extends State<LoginPage> {
                       const SizedBox(height: 20),
                       FormBuilderTextField(
                         name: 'password',
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                        validator: FormBuilderValidators.compose([
+                          FormBuilderValidators.required(),
+                          FormBuilderValidators.minLength(6),
+                        ]),
                         onChanged: (value) => user.password = value.toString(),
                         obscureText:
                             true, // Set this property to true to hide the password
