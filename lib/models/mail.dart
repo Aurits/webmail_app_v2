@@ -72,14 +72,12 @@ class Mail {
       // Retrieve user details from the local database
       User? user = await getUserDetails();
 
-      //print the user details here
-
       // Check if user details are available
       if (user != null) {
         //print the whole use array here
         print(user);
         print(
-            "${user.username} and ${user.password}...............................");
+            "${user.username} and ${user.password} and ${user.timestamp}...............................");
         // Make the API request with user credentials
 
         Response<dynamic> response = await dio.get(

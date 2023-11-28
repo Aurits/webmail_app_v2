@@ -6,7 +6,7 @@ import '../utils/database.dart';
 class User {
   String username;
   String password;
-  String timestamp; // Add a timestamp field
+  String timestamp;
 
   User({required this.username, required this.password})
       : timestamp = DateTime.now()
