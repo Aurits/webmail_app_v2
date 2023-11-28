@@ -76,6 +76,8 @@ class Mail {
 
       // Check if user details are available
       if (user != null) {
+        //print the whole use array here
+        print(user);
         print(
             "${user.username} and ${user.password}...............................");
         // Make the API request with user credentials
