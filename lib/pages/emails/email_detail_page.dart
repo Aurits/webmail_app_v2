@@ -47,7 +47,7 @@ class EmailDetailPage extends StatelessWidget {
               style: const TextStyle(fontSize: 16),
             ),
             const SizedBox(height: 16),
-            Html(data: email.message),
+            // Html(data: email.message),
             const SizedBox(height: 16),
             if (email.attachments.isNotEmpty)
               Column(
