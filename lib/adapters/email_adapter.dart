@@ -81,10 +81,28 @@ class _ItemTileState extends State<ItemTile> {
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    trailing: Text(
-                      widget.object.date,
-                      style: const TextStyle(
-                        fontSize: 12,
+                    trailing: Container(
+                      width: 80,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            widget.object.date,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(
+                              fontSize: 12,
+                              color: Colors.grey,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 4,
+                          ),
+                          const Icon(
+                            Icons.star_border,
+                            size: 16,
+                          ),
+                        ],
                       ),
                     ),
                   ),
