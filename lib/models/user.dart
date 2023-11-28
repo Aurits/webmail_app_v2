@@ -88,7 +88,7 @@ class User {
     Database db = await Utils.init();
     await initTable(db);
 
-    db.delete('userTable');
+    db.delete('usersTable');
 
     print('User deleted');
   }
