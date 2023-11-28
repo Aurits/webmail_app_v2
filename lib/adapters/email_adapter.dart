@@ -54,7 +54,7 @@ class _ItemTileState extends State<ItemTile> {
           mainAxisSize: MainAxisSize.max,
           children: [
             Container(
-              width: 10,
+              width: 5,
             ),
             const SizedBox(
               width: 50,
@@ -83,7 +83,7 @@ class _ItemTileState extends State<ItemTile> {
                       overflow: TextOverflow.ellipsis,
                     ),
                     trailing: SizedBox(
-                      width: 30,
+                      width: 35,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
