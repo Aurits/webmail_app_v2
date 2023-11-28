@@ -47,13 +47,13 @@ class _ItemTileState extends State<ItemTile> {
         widget.onClick(widget.index, widget.object);
       },
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 5),
+        padding: const EdgeInsets.symmetric(vertical: 2),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.max,
           children: [
             Container(
-              width: 20,
+              width: 10,
             ),
             const SizedBox(
               width: 50,
@@ -70,13 +70,15 @@ class _ItemTileState extends State<ItemTile> {
                   ListTile(
                     title: Text(
                       widget.object.replyTo,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     subtitle: Text(
                       widget.object.subject,
-                      maxLines: 1,
+                      maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
                     trailing: Text(
