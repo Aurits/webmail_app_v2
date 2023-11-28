@@ -117,7 +117,7 @@ class _EmailsPageState extends State<EmailsPage>
                   children: <Widget>[
                     IconButton(
                       icon: const Icon(
-                        Icons.search,
+                        Icons.refresh,
                         color: Colors.black,
                       ),
                       onPressed: () {
@@ -138,7 +138,7 @@ class _EmailsPageState extends State<EmailsPage>
                     ),
                     IconButton(
                       icon: const Icon(
-                        Icons.more_vert,
+                        Icons.logout,
                         color: Colors.black,
                       ),
                       onPressed: () {
