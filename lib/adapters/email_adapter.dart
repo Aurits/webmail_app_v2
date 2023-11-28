@@ -67,18 +67,23 @@ class _ItemTileState extends State<ItemTile> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(widget.object.subject,
+                  ListTile(
+                    title: Text(
+                      widget.object.subject,
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                      )),
-                  Container(
-                    height: 5,
-                  ),
-                  Text(
-                    widget.object.message,
-                    style: const TextStyle(
-                      fontSize: 14,
+                      ),
+                    ),
+                    subtitle: Text(
+                      widget.object.body,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    trailing: Text(
+                      widget.object.date,
+                      style: const TextStyle(
+                        fontSize: 12,
+                      ),
                     ),
                   ),
                   Container(
