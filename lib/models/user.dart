@@ -1,14 +1,18 @@
 // ignore_for_file: avoid_print, unnecessary_null_comparison
 
 import 'package:sqflite/sqflite.dart';
+import 'package:intl/intl.dart'; // Import the intl package for date formatting
 
 import '../utils/database.dart';
 
 class User {
   String username;
   String password;
+  String timestamp; // Add a timestamp field
 
-  User({required this.username, required this.password});
+  User({required this.username, required this.password})
+      : timestamp = DateTime.now()
+            .toIso8601String(); // Set the timestamp when the user is created
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
@@ -18,20 +22,23 @@ class User {
   }
 
   Map<String, dynamic> toJson() {
-    return {'username': username, 'password': password};
+    return {'username': username, 'password': password, 'timestamp': timestamp};
   }
 
-//save user in local database //
+  // Save user in the local database
   Future<String> saveUser() async {
     String response = "";
     Database db = await Utils.init();
     String resp = await initTable(db);
 
     print(resp);
-    print("start......next");
 
     if (resp.isNotEmpty) {
-      print("start......");
+      print("Deleting existing user...");
+      // Delete the existing user
+      await db.delete('userTable');
+
+      print("Saving new user...");
       try {
         await db.insert(
           'userTable',
@@ -63,7 +70,8 @@ class User {
       await db.execute('''
         CREATE TABLE IF NOT EXISTS userTable(
           username TEXT PRIMARY KEY,
-          password TEXT NOT NULL
+          password TEXT NOT NULL,
+          timestamp TEXT NOT NULL
         )
       ''');
 
@@ -76,13 +84,33 @@ class User {
     return resp;
   }
 
-  //TO DISPLAY THE NAME OF THE EMAIL IN THE DATABASE BY PRINT
+  // Delete the user from the table
   static void deleteUser() async {
     Database db = await Utils.init();
     await initTable(db);
 
     db.delete('userTable');
 
-    print('deleted');
+    print('User deleted');
+  }
+
+  // Check if the user record is expired based on a specified period (in minutes)
+  static Future<bool> isUserExpired(int expirationPeriodInMinutes) async {
+    Database db = await Utils.init();
+    await initTable(db);
+
+    List<Map<String, dynamic>> user = await db.query('userTable');
+
+    if (user.isNotEmpty) {
+      String timestamp = user[0]['timestamp'];
+      DateTime userTimestamp = DateTime.parse(timestamp);
+      DateTime now = DateTime.now();
+      Duration difference = now.difference(userTimestamp);
+
+      return difference.inMinutes > expirationPeriodInMinutes;
+    }
+
+    // Return true if no user record is found (consider it as expired)
+    return true;
   }
 }
