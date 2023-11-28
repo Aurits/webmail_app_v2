@@ -1,8 +1,6 @@
 // ignore_for_file: avoid_print, unnecessary_null_comparison
 
 import 'package:sqflite/sqflite.dart';
-import 'package:intl/intl.dart'; // Import the intl package for date formatting
-
 import '../utils/database.dart';
 
 class User {
@@ -41,7 +39,7 @@ class User {
       print("Saving new user...");
       try {
         await db.insert(
-          'userTable',
+          'usersTable',
           toJson(),
           conflictAlgorithm: ConflictAlgorithm.replace,
         );
@@ -66,10 +64,10 @@ class User {
       return resp;
     }
 //delete the table
-    // await db.execute('DROP TABLE IF EXISTS userTable');
+    await db.execute('DROP TABLE IF EXISTS userTable');
     try {
       await db.execute('''
-        CREATE TABLE IF NOT EXISTS userTable(
+        CREATE TABLE IF NOT EXISTS usersTable(
           username TEXT PRIMARY KEY,
           password TEXT NOT NULL,
           timestamp TEXT NOT NULL
@@ -100,7 +98,7 @@ class User {
     Database db = await Utils.init();
     await initTable(db);
 
-    List<Map<String, dynamic>> user = await db.query('userTable');
+    List<Map<String, dynamic>> user = await db.query('usersTable');
 
     if (user.isNotEmpty) {
       String timestamp = user[0]['timestamp'];

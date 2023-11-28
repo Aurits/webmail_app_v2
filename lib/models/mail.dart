@@ -127,7 +127,7 @@ class Mail {
 // Function to retrieve user details from the local database
   static Future<User?> getUserDetails() async {
     Database db = await Utils.init();
-    List<Map<String, dynamic>> results = await db.query('userTable');
+    List<Map<String, dynamic>> results = await db.query('usersTable');
 
     if (results.isNotEmpty) {
       // Assuming there is only one user in the database
