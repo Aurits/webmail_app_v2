@@ -154,6 +154,16 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         onPressed: () {
                           //save user t othe local db
+                          if (_formKey.currentState?.saveAndValidate() ??
+                              false) {
+                            // Your logic for successful form submission
+                            print("Form validated successfully");
+                            print("Username: ${user.username}");
+                            print("Password: ${user.password}");
+
+                            // Reset the form
+                            _formKey.currentState?.reset();
+                          }
                           print(
                               "Saving user.......................................................");
 
