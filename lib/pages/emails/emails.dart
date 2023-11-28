@@ -115,16 +115,6 @@ class _EmailsPageState extends State<EmailsPage>
                 ),
                 Row(
                   children: <Widget>[
-                    IconButton(
-                      icon: const Icon(
-                        Icons.refresh,
-                        color: Colors.black,
-                      ),
-                      onPressed: () {
-                        print("Pressed");
-                        _handleRefresh();
-                      },
-                    ),
                     //filter icon
 
                     IconButton(
@@ -136,6 +126,17 @@ class _EmailsPageState extends State<EmailsPage>
                         print("Pressed");
                       },
                     ),
+                    IconButton(
+                      icon: const Icon(
+                        Icons.refresh,
+                        color: Colors.black,
+                      ),
+                      onPressed: () {
+                        print("Pressed");
+                        _handleRefresh();
+                      },
+                    ),
+                    
                     IconButton(
                       icon: const Icon(
                         Icons.logout,

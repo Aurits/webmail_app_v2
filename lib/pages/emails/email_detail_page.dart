@@ -14,7 +14,11 @@ class EmailDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Email Details'),
+        title: const Text('Email Details', style: const TextStyle(
+                    fontSize: 18,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold),
+                  ),
         backgroundColor: Colors.green[400],
       ),
       body: SingleChildScrollView(
