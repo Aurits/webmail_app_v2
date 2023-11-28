@@ -67,6 +67,7 @@ class _EmailsPageState extends State<EmailsPage>
           statusBarIconBrightness: Brightness.light,
         ),
       ),
+      drawer: const Drawer(),
       backgroundColor: Colors.white,
       //floating
       floatingActionButton: Container(
@@ -104,7 +105,7 @@ class _EmailsPageState extends State<EmailsPage>
                   //display the number of emails
                   "Inbox (${emails.length})",
                   style: const TextStyle(
-                    fontSize: 22,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
